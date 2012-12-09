@@ -103,19 +103,108 @@ public class Bauernhof {
 					sumDiesel += tractor.getMaschine().getDetailOfMaschine();
 					countDiesel++;
 				}
-			}else{
-				//Well... actually there is no way, traktoren is filled with other things than traktor but, i wasn't sure whether 
-				//this could result in a problem or not nonetheless
-				System.out.println("Do we need it this way?");
 			}
 		}
+		
+		//return durchschn. Anzahl der Betriebsstunden DieselTraktor, durchschn. Anzahl der Betriebsstunden BioTraktor
+		double[] ret = {sumDiesel/countDiesel, sumBio/countBio};
 		
 		return ret; // CHANGE IT!
 	}
 	
-	
-	public double[] getCapacity() {
-		return new double[] {0,0};
+	//Der durchschnittliche Dieselverbrauch aller Diesetraktoren eines Bauernhofs
+	//alle zusammen und zusätzlich aufgeschlüsselt nach den Einsatzarten (Säen oder Düngen)
+	public double[] avgDieselTraktor() {
+		MyIterator it = (MyIterator) traktoren.iterator();
+		double sumsaeen = 0;
+		double sumduengen = 0;
+		int count = 0;
+		
+		while(it.hasNext()) {
+			Traktor obj = (Traktor) it.next();
+			
+			if(obj instanceof DieselTraktor) {
+				if(obj.getMaschine() instanceof Duengstreuer)
+					sumduengen += ((DieselTraktor)obj).getAmount();
+				else
+					sumsaeen += ((DieselTraktor)obj).getAmount();
+				
+				count ++;
+			}
+		}
+		
+		//return: gesamter Dieselverbrauch / gesamter Dieselverbrauch Saeen / gesamter Dieselverbraucht Duengen / 
+		//duchschn. Dieselverbrauch gesamt / durchschn.Dieselverbrauch Saeen / durchschn. Dieselverbrauch Duengen 
+		double[] ret = {sumduengen+sumsaeen, sumsaeen, sumduengen, (sumduengen+sumsaeen)/(count), (sumsaeen/count), (sumduengen/count)};
+		
+		return ret;
 	}
 	
+	
+	//Der durchschnittliche Gasverbrauch aller Diesetraktoren eines Bauernhofs
+	//alle zusammen und zusätzlich aufgeschlüsselt nach den Einsatzarten (Säen oder Düngen)
+	public double[] avgBioTraktor() {
+		MyIterator it = (MyIterator) traktoren.iterator();
+		double sumsaeen = 0;
+		double sumduengen = 0;
+		int count = 0;
+		
+		while(it.hasNext()) {
+			Traktor obj = (Traktor) it.next();
+			
+			if(obj instanceof BioTraktor) {
+				if(obj.getMaschine() instanceof Duengstreuer)
+					sumduengen += ((BioTraktor)obj).getAmount();
+				else
+					sumsaeen += ((BioTraktor)obj).getAmount();
+				
+				count ++;
+			}
+		}
+		
+		//return: gesamter Dieselverbrauch / gesamter Dieselverbrauch Saeen / gesamter Dieselverbraucht Duengen / 
+		//duchschn. Dieselverbrauch gesamt / durchschn.Dieselverbrauch Saeen / durchschn. Dieselverbrauch Duengen 
+		double[] ret = {sumduengen+sumsaeen, sumsaeen, sumduengen, (sumduengen+sumsaeen)/(count), (sumsaeen/count), (sumduengen/count)};
+		
+		return ret;
+	}
+	
+	//Die minimale und maximale Anzahl an Säscharen insgesamt und aufgeschlüsselt nach Art des Traktors (Dieseltraktor oder Biogastraktor)
+	public double[] minmaxScharen() {
+		MyIterator it = (MyIterator) traktoren.iterator();
+		double minbio = -1;
+		double mindiesel = -1;
+		double maxbio = 0;
+		double maxdiesel = 0;
+		
+		while(it.hasNext()) {
+			Traktor obj = (Traktor) it.next();
+			
+			
+			if(obj.getMaschine() instanceof DrillMaschine )
+			{
+				double anz = obj.getMaschine().getDetailOfMaschine();
+				
+				if(obj instanceof BioTraktor) {
+				
+					if((minbio < anz) || (minbio == -1))
+						minbio = anz;
+				
+					if(maxbio > anz)
+						maxbio = anz;
+				} else {
+					if((mindiesel < anz) || (mindiesel == -1))
+						mindiesel = anz;
+					
+					if(maxdiesel > anz)
+						maxdiesel = anz;
+				}		
+			}
+		}
+		
+		//return: min. Anzahl Saescharen BioTraktor / max. Anzahl Saescharen BioTraktor / min. Anzahl Saescharen DieselTraktor / max. Anzahl DieselTraktor
+		double[] ret = {minbio, maxbio, mindiesel, maxdiesel};
+		
+		return ret;
+	}	
 }
