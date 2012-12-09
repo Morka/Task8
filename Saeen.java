@@ -2,9 +2,6 @@
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
  
-public class Maschine {
+public class Saeen extends Maschine {
 	
-	public Maschine(){
-		
-	}
 }

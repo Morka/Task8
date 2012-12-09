@@ -1,4 +1,4 @@
-public interface MyIterator {
+interface MyIterator {
 	public Object next();
 	public boolean hasNext();
 }
