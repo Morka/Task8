@@ -4,4 +4,7 @@
  
 public class Maschine {
 	
+	public Maschine(){
+		
+	}
 }
