@@ -1,11 +1,11 @@
 /**
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
- 
+@ClassInformation(author="Matthias", date="09.12.2012") 
 public class Traktor {
 	
 	private Maschine machine;
-	private int upHoursFertilizing, upHoursSeeding;
+	private double upHoursFertilizing, upHoursSeeding;
 	
 	//wechselt Maschine aus
 	@MethodInformation(author="Matthias", date="09.12.2012", description="Changes the purpose of the tractor.")

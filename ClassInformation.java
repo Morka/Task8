@@ -4,11 +4,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME) //for reflection
-@Target(ElementType.METHOD)
-public @interface MethodInformation {
+@Target(ElementType.TYPE)
+public @interface ClassInformation {
 	
-	String author() default "JESUS";
-	String date() default "30.08.2552";
-	String description() default "Does something fancy!";
+	String author() default "GOD";
+	String date() default "01.01.1970";
 
 }
