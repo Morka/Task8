@@ -64,6 +64,7 @@ public class Set {
 	/** 
 	  * returns an iterator over a set of elements
 	  */
+	@MethodInformation(author="Wolfgang", date="07.12.2012", description="returns a new Iterator over Set")
 	public BauernIterator iterator() {
 		return new BauernIterator();
 	}
@@ -74,6 +75,7 @@ public class Set {
 	  * Precondition: element kommt nur ins Set, wenn noch kein gleiches element im Set vorhanden ist
 	  * @param element to insert in Set
 	  */
+	@MethodInformation(author="Wolfgang", date="07.12.2012", description="inserts element in Set")
 	public void insert(Object element) {
 		if(!contains(element)) {
 			
@@ -91,6 +93,7 @@ public class Set {
 	  * 
 	  * @return true if IDENTIC element is in Set, otherwise false
 	  */
+	@MethodInformation(author="Wolfgang", date="07.12.2012", description="checks if Set contain specific element")
 	private boolean contains(Object element) {
 		Node p = head;
 		
@@ -103,6 +106,7 @@ public class Set {
 		return false;
 	}
 	
+	@MethodInformation(author="Wolfgang", date="07.12.2012", description="deletes element from Set")
 	public boolean delete(Object element) {
 		Node p = head;
 		Node prev = head;
@@ -126,7 +130,7 @@ public class Set {
 		return false;
 	}
 		
-	
+	@MethodInformation(author="Wolfgang", date="07.12.2012", description="changes machine in specific tractor")
 	public boolean change(Traktor traktor, Maschine maschine) {
 		Node p = head;
 		
