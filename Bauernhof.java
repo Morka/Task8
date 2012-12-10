@@ -9,31 +9,54 @@ public class Bauernhof {
 	
 	/*
 	 * Precondition: name must be unique
+	 * Postcondition: traktoren contains only elements of Traktoren (+ Undertyps)
+	 * Postcondition: name is final
 	 */
 	public Bauernhof(String name) {
 		this.name = name;
+		traktoren = new Set();
 	}
 	
+	/*
+	 * Postcondition: delivers unique name of the Farm
+	 */
+	@MethodInformation(author="Wolfgang", date="07.12.2012", description="gives back name of farm")
 	protected String getId() {
 		return name;
 	}
 
  	 
-	public void insertTraktor(Traktor traktor) {
+	/*
+	 * Postcondition: traktor is inserted in the Set traktoren
+	 */
+	@MethodInformation(author="Wolfgang", date="07.12.2012", description="inserts tractor in Set")
+	protected void insertTraktor(Traktor traktor) {
 		traktoren.insert(traktor);
 	}
 	
-	public boolean deleteTraktor(Traktor traktor) {
+	/*
+	 * Precondition: traktor-element must exist in Set traktoren
+	 * Postcondition: traktor is deleted in the Set traktoren
+	 */
+	@MethodInformation(author="Wolfgang", date="07.12.2012", description="deletes tractor from Set")
+	protected boolean deleteTraktor(Traktor traktor) {
 		return traktoren.delete(traktor);
 	}
 	
-	public boolean changeTraktor(Traktor traktor, Maschine maschine) {
+	/*
+	 * Precondition: traktor-element must exist in Set traktoren
+	 * Postcondition: current machine is changed in traktor
+	 */
+	@MethodInformation(author="Wolfgang", date="07.12.2012", description="changes current machine of tractor")
+	protected boolean changeTraktor(Traktor traktor, Maschine maschine) {
 		return traktoren.change(traktor, maschine); 
 	}
 	
-	//Summe aller Betriebsstunden aller Traktoren
+	/*
+	 * Postcondition: all operating hours of all tractors on farm are summed up
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the sum of all operating hours")
-	public double sumOpHours() {
+	protected double sumOpHours() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		
@@ -44,9 +67,11 @@ public class Bauernhof {
 		return sum;
 	}
 	
-	//duchschnittliche Anzahl der Betriebsstunden aller Traktoren
+	/*
+	 * Postcondition: average operating hours of all tractors on farm are calculated
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all operating hours")
-	public double avgOpHours() {
+	protected double avgOpHours() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -59,9 +84,11 @@ public class Bauernhof {
 		return sum/count;
 	}
 	
-	//duchschnittliche Anzahl der Betriebsstunden aller Traktoren mit Einsatzart Düngen
-	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all duengen operating hours")
-	public double avgOpHoursFertilize() {
+	/*
+	 * Postcondition: average operating hours of all tractors on farm with operating mode fertilize are calculated
+	 */
+	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all fertilize operating hours")
+	protected double avgOpHoursFertilize() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -74,9 +101,11 @@ public class Bauernhof {
 		return sum/count;
 	}
 	
-	//duchschnittliche Anzahl der Betriebsstunden aller Traktoren mit Einsatzart Säen
-	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all saeen operating hours")
-	public double avgOpHoursSeed() {
+	/*
+	 * Postcondition: average operating hours of all tractors on farm with operating mode sow are calculated
+	 */
+	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all sowing operating hours")
+	protected double avgOpHoursSeed() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -89,9 +118,11 @@ public class Bauernhof {
 		return sum/count;
 	}
 	
-	//Summe aller Traktoren mit Einsatzart Düngen
+	/*
+	 * Postcondition: all operating hours of all tractors on farm with operating mode fertilize are summed up
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the sum of all fertilize operating hours")
-	public double sumOpHoursFertilize() {
+	protected double sumOpHoursFertilize() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		
@@ -102,9 +133,11 @@ public class Bauernhof {
 		return sum;
 	}
 		
-	//Summe aller Traktoren mit Einsatzart Säen
+	/*
+	 * Postcondition: all operating hours of all tractors on farm with operating mode sow are summed up
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the sum of all seed operating hours")
-	public double sumOpHoursSeed() {
+	protected double sumOpHoursSeed() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		
@@ -117,10 +150,11 @@ public class Bauernhof {
 	
 	
 	
-	
-	//durchschnittliche Anzahl der Betriebsstunden aller Bio-Traktoren eines Bauernhofs
+	/*
+	 * Postcondition: average operating hours of all bio-tractors on farm are calculated
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all operating hours of all BioTraktor")
-	public double avOpHoursBioTraktor() {
+	protected double avOpHoursBioTraktor() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -137,9 +171,11 @@ public class Bauernhof {
 		return sum/count;
 	}
 	
-	//durchschnittliche Anzahl der Betriebsstunden aller Bio-Traktoren eines Bauernhofs
+	/*
+	 * Postcondition: average operating hours of all diesel-tractors on farm are calculated
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all operating hours of all DieselTraktor")
-	public double avOpHoursDieselTraktor() {
+	protected double avOpHoursDieselTraktor() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -156,9 +192,11 @@ public class Bauernhof {
 		return sum/count;
 	}
 	
-	//Der durchschnittliche Dieselverbrauch aller Diesetraktoren eines Bauernhofs mit Einsatzart Säen
-	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all used Diesel of all seeding DieselTraktor")
-	public double avgDieselTraktorSeed() {
+	/*
+	 * Postcondition: average diesel consumption of all diesel-tractors on farm with operating mode sow is calculated
+	 */
+	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all used Diesel of all sowing DieselTraktor")
+	protected double avgDieselTraktorSeed() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -177,9 +215,11 @@ public class Bauernhof {
 		return sum/count;
 	}
 	
-	//Der durchschnittliche Dieselverbrauch aller Diesetraktoren eines Bauernhofs mit Einsatzart Düngen
+	/*
+	 * Postcondition: average diesel consumption of all diesel-tractors on farm with operating mode fertilize is calculated
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all used Diesel of all fertilizing DieselTraktor")
-	public double avgDieselTraktorFertilizing() {
+	protected double avgDieselTraktorFertilizing() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -198,9 +238,11 @@ public class Bauernhof {
 		return sum/count;
 	}
 	
-	//Der durchschnittliche Dieselverbrauch aller Diesetraktoren eines Bauernhofs
+	/*
+	 * Postcondition: average diesel consumption of all diesel-tractors on farm is calculated
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all used Diesel of all DieselTraktor")
-	public double avgDieselTraktor() {
+	protected double avgDieselTraktor() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -217,9 +259,11 @@ public class Bauernhof {
 		return sum/count;
 	}
 	
-	//Der gesamte Dieselverbrauch aller Diesetraktoren eines Bauernhofs
+	/*
+	 * Postcondition: total diesel consumption of all diesel-tractors on farm is summed up
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the sum of all used Diesel of all DieselTraktor")
-	public double sumDieselTraktor() {
+	protected double sumDieselTraktor() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		
@@ -234,9 +278,11 @@ public class Bauernhof {
 		return sum;
 	}
 	
-	//Der durchschnittliche Gasverbrauch aller Biotraktoren eines Bauernhofs mit Einsatzart Säen
-	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all used Gas of all seeding BioTraktor")
-	public double avgBioTraktorSeed() {
+	/*
+	 * Postcondition: average gas consumption of all bio-tractors on farm with operating mode sow is calculated
+	 */
+	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all used Gas of all sowing BioTraktor")
+	protected double avgBioTraktorSeed() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -255,9 +301,11 @@ public class Bauernhof {
 		return sum/count;
 	}
 		
-	//Der durchschnittliche Gasverbrauch aller Biotraktoren eines Bauernhofs mit Einsatzart Düngen
+	/*
+	 * Postcondition: average gas consumption of all bio-tractors on farm with operating mode fertilize is calculated
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all used Gas of all fertilizing BioTraktor")
-	public double avgBioTraktorFertilizing() {
+	protected double avgBioTraktorFertilizing() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -276,9 +324,11 @@ public class Bauernhof {
 		return sum/count;
 	}
 	
-	//Der durchschnittliche Gasverbrauch aller Biotraktoren eines Bauernhofs
+	/*
+	 * Postcondition: average gas consumption of all bio-tractors on farm is calculated
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all used Gas of all BioTraktor")
-	public double avgBioTraktor() {
+	protected double avgBioTraktor() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -295,9 +345,11 @@ public class Bauernhof {
 		return sum/count;
 	}
 	
-	//Der gesamte Gasverbrauch aller Biotraktoren eines Bauernhofs
+	/*
+	 * Postcondition: total gas consumption of all bio-tractors on farm is summed up
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the sum of all used Gas of all BioTraktor")
-	public double sumBioTraktor() {
+	protected double sumBioTraktor() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		
@@ -312,9 +364,11 @@ public class Bauernhof {
 		return sum;
 	}
 	
-	//liefert die minimale Anzahl an Säscharen aufgeschlüsselt nach Dieseltraktoren
+	/*
+	 * Postcondition: minimum number of swords to plowshare for all diesel-tractors is found out
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the minimum number of swords to plowshares of all DieselTraktor")
-	public double minSwordsDiesel() {
+	protected double minSwordsDiesel() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double min = -1;
 		
@@ -337,9 +391,11 @@ public class Bauernhof {
 		return min;
 	}	
 		
-	//liefert die minimale Anzahl an Säscharen aufgeschlüsselt nach Biotraktoren
-	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the minimum number of swords to plowshares of all BioTraktor")
-	public double minSwordsBio() {
+	/*
+	 * Postcondition: minimum number of swords to plowshare for all bio-tractors is found out
+	 */
+	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the minimum number of swords to plowshare of all BioTraktor")
+	protected double minSwordsBio() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double min = -1;
 		
@@ -362,9 +418,11 @@ public class Bauernhof {
 		return min;
 	}	
 	
-	//liefert die maximale Anzahl an Säscharen aufgeschlüsselt nach Dieseltraktoren
+	/*
+	 * Postcondition: maximum number of swords to plowshare for all diesel-tractors is found out
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the maximum number of swords to plowshares of all DieselTraktor")
-	public double maxSwordsDiesel() {
+	protected double maxSwordsDiesel() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double max = -1;
 		
@@ -387,9 +445,11 @@ public class Bauernhof {
 		return max;
 	}	
 			
-	//liefert die maximale Anzahl an Säscharen aufgeschlüsselt nach Biotraktoren
+	/*
+	 * Postcondition: maximum number of swords to plowshare for all bio-tractors is found out
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the maximum number of swords to plowshares of all BioTraktor")
-	public double maxSwordsBio() {
+	protected double maxSwordsBio() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double max = -1;
 		
@@ -412,9 +472,11 @@ public class Bauernhof {
 		return max;
 	}
 	
-	//liefert die durchschnittliche Fassungskapazität des Düngerbehälters aller Dieseltraktoren
+	/*
+	 * Postcondition: average fertilizer carrying capacity of all diesel-tractors is calculated
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average carrying capacity of all DieselTraktor")
-	public double avgCapacityDiesel(){
+	protected double avgCapacityDiesel(){
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -432,9 +494,11 @@ public class Bauernhof {
 		return sum/count; 
 	}
 	
-	//liefert die durchschnittliche Fassungskapazität des Düngerbehälters aller Biotraktoren
+	/*
+	 * Postcondition: average fertilizer carrying capacity of all bio-tractors is calculated
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average carrying capacity of all BioTraktor")
-	public double avgCapacityBio(){
+	protected double avgCapacityBio(){
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -452,9 +516,11 @@ public class Bauernhof {
 		return sum/count; 
 	}
 	
-	//liefert die durchschnittliche Fassungskapazität des Düngerbehälters aller Traktoren
+	/*
+	 * Postcondition: average fertilizer carrying capacity of all tractors is calculated
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average carrying capacity of all Traktor")
-	public double avgCapacity(){
+	protected double avgCapacity(){
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -470,9 +536,11 @@ public class Bauernhof {
 		return sum/count; 
 	}
 	
-	//liefert die gesamte Fassungskapazität des Düngerbehälters aller Traktoren
+	/*
+	 * Postcondition: fertilizer carrying capacity of all tractors is summed up
+	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the sum of carrying capacity of all Traktor")
-	public double sumCapacity(){
+	protected double sumCapacity(){
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		
