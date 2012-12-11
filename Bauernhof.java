@@ -18,6 +18,22 @@ public class Bauernhof {
 	}
 	
 	/*
+	 * Postcondition: delivers traktor with declared number
+	 */
+	@MethodInformation(author="Wolfgang", date="11.12.2012", description="gives back tractor with declared number")
+	protected Traktor getTraktor(int nr) {
+		MyIterator it = (MyIterator) traktoren.iterator();
+		Traktor ret = null;
+		while(it.hasNext()) {
+			ret = (Traktor) it.next();
+			if(ret.getSnr() == nr)
+				return ret;
+		}
+		
+		return null;
+	}
+	
+	/*
 	 * Postcondition: delivers unique name of the Farm
 	 */
 	@MethodInformation(author="Wolfgang", date="07.12.2012", description="gives back name of farm")
