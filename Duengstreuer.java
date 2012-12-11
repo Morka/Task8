@@ -19,6 +19,6 @@ public class Duengstreuer implements Maschine {
 	
 	@MethodInformation(author="Alex", date="09.12.2012", description="Gives back a String that describes the Duengstreuer")
 	public String toString(){
-		return "" + capacity;
+		return "Duengstreuer: " + capacity;
 	}
 }

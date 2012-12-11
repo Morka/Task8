@@ -3,7 +3,11 @@
  */
  
 public class Bauernbund {
-	Set bauernhoefe = new Set();
+	Set bauernhoefe;
+	
+	public Bauernbund(){
+		bauernhoefe = new Set();
+	}
 	
 	/*
 	 * Precondition: bauernhof-element must not exist in Set bauerhoefe

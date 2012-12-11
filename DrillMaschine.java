@@ -19,6 +19,6 @@ public class DrillMaschine implements Maschine {
 	
 	@MethodInformation(author="Alex", date="09.12.2012", description="Gives back a String describing the DrillMaschine")
 	public String toString(){
-		return "" + numberOfSaeschare;
+		return "DrillMaschine: " + numberOfSaeschare;
 	}
 }

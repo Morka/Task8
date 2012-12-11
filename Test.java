@@ -26,12 +26,12 @@ public class Test {
 		Bauernhof bauernhof1 = new Bauernhof("Hiasl");
 		System.out.println(bauernhof1.avgBioTraktor()); //gives out NaN
 
-		BioTraktor bio1 = new BioTraktor();
-		BioTraktor bio2 = new BioTraktor();
-		BioTraktor bio3 = new BioTraktor();
-		DieselTraktor diesel1 = new DieselTraktor();
-		DieselTraktor diesel2 = new DieselTraktor();
-		DieselTraktor diesel3 = new DieselTraktor();
+		BioTraktor bio1 = new BioTraktor(1);
+		BioTraktor bio2 = new BioTraktor(2);
+		BioTraktor bio3 = new BioTraktor(3);
+		DieselTraktor diesel1 = new DieselTraktor(4);
+		DieselTraktor diesel2 = new DieselTraktor(5);
+		DieselTraktor diesel3 = new DieselTraktor(6);
 		
 		DrillMaschine drill1 = new DrillMaschine(3);
 		DrillMaschine drill2 = new DrillMaschine(7);
@@ -52,21 +52,23 @@ public class Test {
 		bauernhof1.insertTraktor(diesel2);
 		bauernhof1.insertTraktor(diesel3);
 		
-		
 		System.out.println(bauernhof1.avgBioTraktor());
+
 		
+		Bauernbund bauernbund = new Bauernbund(); //Method bauernbund handles the set of Baunerhof's
+			
 		Bauernhof bauernhof2 = new Bauernhof("Hoellgraf");
 		Bauernhof bauernhof3 = new Bauernhof("Zainzhof");
-		Set bauernhoefe1 = new Set();
 		
-		bauernhoefe1.insert(bauernhof1);
-		bauernhoefe1.insert(bauernhof2);
-		bauernhoefe1.insert(bauernhof3);
+		bauernhof2.insertTraktor(bio2);
 		
-		Bauernhof tmp = bauernhoefe1.getBauernhof("Hoellgraf", null);
+		bauernbund.addFarm(bauernhof1);
+		bauernbund.addFarm(bauernhof3);
+		bauernbund.addFarm(bauernhof2);
 		
-		System.out.println(tmp.toString());
-		
+		System.out.println(bauernbund.getFarm("Hoellgraf"));
+		System.out.println(bauernbund.getFarm("Hoellgraf").getTraktor(2));
+
 		System.out.println("\nStatistische Wert berechnen");
 		
 		
