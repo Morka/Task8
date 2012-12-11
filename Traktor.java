@@ -53,5 +53,11 @@ public class Traktor {
 		return this.machine;
 		
 	}
+	
+	protected int getSNR() {
+		
+		return this.snr;
+		
+	}
 		
 }
