@@ -26,7 +26,7 @@ public class Bauernhof {
 		Traktor ret = null;
 		while(it.hasNext()) {
 			ret = (Traktor) it.next();
-			if(ret.getSnr() == nr)
+			if(ret.getSNR() == nr)
 				return ret;
 		}
 		
@@ -43,6 +43,7 @@ public class Bauernhof {
 
  	 
 	/*
+	 * Precondition: traktor must not exist in Set traktoren
 	 * Postcondition: traktor is inserted in the Set traktoren
 	 */
 	@MethodInformation(author="Wolfgang", date="07.12.2012", description="inserts tractor in Set")
