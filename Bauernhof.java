@@ -18,6 +18,14 @@ public class Bauernhof {
 	}
 	
 	/*
+	 * Postcondition: name of Bauernhof is delivered
+	 */
+	@MethodInformation(author="Wolfgang", date="11.12.2012", description="gives back name of the farm")
+	public String toString() {
+		return name;
+	}
+	
+	/*
 	 * Postcondition: delivers traktor with declared number
 	 */
 	@MethodInformation(author="Wolfgang", date="11.12.2012", description="gives back tractor with declared number")
