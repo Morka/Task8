@@ -11,7 +11,7 @@ public class Set {
 	private Node tail;  // last node of list
 			
 	
-	class Node{
+	private class Node{
 		private Object element; // element in node
 		private Node next = null; // next node in list
 		
@@ -47,7 +47,9 @@ public class Set {
 		}
 	}
 	
-	class BauernIterator implements MyIterator{
+	
+	
+	private class BauernIterator implements MyIterator{
 		private Node p=head; // current iterator position
 				
 		/**
@@ -168,4 +170,30 @@ public class Set {
 		
 		return false;
 	}
+	
+	//Precondition: name != null and node == null(!)
+	public Bauernhof getBauernhof(String name, Node node){
+		if(node == null){
+			node = this.tail;
+		}else{
+			return null; //wrong input
+		}
+		if(node != null && node.getElement() instanceof Bauernhof){
+			System.out.println("in recursion");
+			if(((Bauernhof)node.getElement()).getId().equals(name)){
+				return (Bauernhof)node.getElement();
+			}
+			else{
+				if(node.getNextNode() != null){
+					return this.getBauernhof(name, node.getNextNode());
+				}
+				else{
+					return null;
+				}
+			}
+		}else{
+			return null;
+		}
+	}
+	
 }

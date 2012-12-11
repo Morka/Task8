@@ -22,8 +22,10 @@ public class Test {
 		
 		System.out.println(ms.length);
 		System.out.println(ms[0]);
-		
-		Bauernhof hiasl = new Bauernhof("Hiasl");
+			
+		Bauernhof bauernhof1 = new Bauernhof("Hiasl");
+		System.out.println(bauernhof1.avgBioTraktor()); //gives out NaN
+
 		BioTraktor bio1 = new BioTraktor();
 		BioTraktor bio2 = new BioTraktor();
 		BioTraktor bio3 = new BioTraktor();
@@ -43,15 +45,29 @@ public class Test {
 		diesel2.change(drill2);
 		diesel3.change(streuer2);
 		
-		hiasl.insertTraktor(bio1);
-		hiasl.insertTraktor(bio2);
-		hiasl.insertTraktor(bio3);
-		hiasl.insertTraktor(diesel1);
-		hiasl.insertTraktor(diesel2);
-		hiasl.insertTraktor(diesel3);
+		bauernhof1.insertTraktor(bio1);
+		bauernhof1.insertTraktor(bio2);
+		bauernhof1.insertTraktor(bio3);
+		bauernhof1.insertTraktor(diesel1);
+		bauernhof1.insertTraktor(diesel2);
+		bauernhof1.insertTraktor(diesel3);
 		
 		
-		System.out.println(hiasl.avgBioTraktor());
+		System.out.println(bauernhof1.avgBioTraktor());
+		
+		Bauernhof bauernhof2 = new Bauernhof("Hoellgraf");
+		Bauernhof bauernhof3 = new Bauernhof("Zainzhof");
+		Set bauernhoefe1 = new Set();
+		
+		bauernhoefe1.insert(bauernhof1);
+		bauernhoefe1.insert(bauernhof2);
+		bauernhoefe1.insert(bauernhof3);
+		
+		Bauernhof tmp = bauernhoefe1.getBauernhof("Hoellgraf", null);
+		
+		System.out.println(tmp.toString());
+		
+		System.out.println("\nStatistische Wert berechnen");
 		
 		
 		
