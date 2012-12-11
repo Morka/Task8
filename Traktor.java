@@ -15,6 +15,15 @@ public class Traktor {
 		this.snr = serialnumber;
 		
 	}
+	@MethodInformation(author="Alex", date="10.12.2012", description="increases Fertilizing Time")
+	public void increaseUpHoursFertilizing(double fertilizingTime){
+		this.upHoursFertilizing += fertilizingTime;
+	}
+	
+	@MethodInformation(author="Alex", date="10.12.2012", description="increases Seeding Time")
+	public void increaseUpHoursSeeding(double seedingTime){
+		this.upHoursFertilizing += seedingTime;
+	}
 	
 	//Precondition: maschine != null
 	//Postcondition: sets this.machine to maschine
