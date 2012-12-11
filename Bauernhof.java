@@ -262,7 +262,7 @@ public class Bauernhof {
 	 * Postcondition: average diesel consumption of all diesel-tractors on farm with operating mode fertilize is calculated
 	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all used Diesel of all fertilizing DieselTraktor")
-	protected double avgDieselTraktorFertilizing() {
+	protected double avgDieselTraktorFertilizing() throws DivideByZeroException {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -277,6 +277,9 @@ public class Bauernhof {
 				}
 			}
 		}
+		
+		if(count == 0)
+			throw new DivideByZeroException();
 		
 		return sum/count;
 	}
@@ -425,7 +428,7 @@ public class Bauernhof {
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the minimum number of swords to plowshares of all DieselTraktor")
 	protected double minSwordsDiesel() {
 		MyIterator it = (MyIterator) traktoren.iterator();
-		double min = -1;
+		double min = 0;
 		
 		while(it.hasNext()) {
 				Traktor obj = (Traktor) it.next();
@@ -437,7 +440,7 @@ public class Bauernhof {
 				
 				if(obj instanceof DieselTraktor) {
 				
-					if((anz < min) || (min == -1))
+					if((anz < min) || (min == 0))
 						min = anz;
 				}
 			}
@@ -452,7 +455,7 @@ public class Bauernhof {
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the minimum number of swords to plowshare of all BioTraktor")
 	protected double minSwordsBio() {
 		MyIterator it = (MyIterator) traktoren.iterator();
-		double min = -1;
+		double min = 0;
 		
 		while(it.hasNext()) {
 					Traktor obj = (Traktor) it.next();
@@ -464,7 +467,7 @@ public class Bauernhof {
 				
 				if(obj instanceof BioTraktor) {
 				
-					if((anz < min) || (min == -1))
+					if((anz < min) || (min == 0))
 						min = anz;
 				}
 			}
@@ -479,7 +482,7 @@ public class Bauernhof {
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the maximum number of swords to plowshares of all DieselTraktor")
 	protected double maxSwordsDiesel() {
 		MyIterator it = (MyIterator) traktoren.iterator();
-		double max = -1;
+		double max = 0;
 		
 		while(it.hasNext()) {
 				Traktor obj = (Traktor) it.next();
@@ -491,7 +494,7 @@ public class Bauernhof {
 				
 				if(obj instanceof DieselTraktor) {
 				
-					if((anz > max) || (max == -1))
+					if((anz > max) || (max == 0))
 						max = anz;
 				}
 			}
@@ -506,7 +509,7 @@ public class Bauernhof {
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the maximum number of swords to plowshares of all BioTraktor")
 	protected double maxSwordsBio() {
 		MyIterator it = (MyIterator) traktoren.iterator();
-		double max = -1;
+		double max = 0;
 		
 		while(it.hasNext()) {
 					Traktor obj = (Traktor) it.next();
@@ -518,7 +521,7 @@ public class Bauernhof {
 				
 				if(obj instanceof BioTraktor) {
 				
-					if((anz > max) || (max == -1))
+					if((anz > max) || (max == 0))
 						max = anz;
 				}
 			}

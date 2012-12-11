@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
 
+@ClassInformation(author="Alex", date="10.12.2012") 
 public class Test {
 
 	/**
@@ -24,7 +25,11 @@ public class Test {
 		System.out.println(ms[0]);
 			
 		Bauernhof bauernhof1 = new Bauernhof("Hiasl");
-		System.out.println(bauernhof1.avgBioTraktor()); //gives out NaN
+		try {
+			System.out.println(bauernhof1.avgBioTraktor());
+		} catch (DivideByZeroException e) {
+			System.out.println(0);
+		} 
 
 		BioTraktor bio1 = new BioTraktor(1);
 		BioTraktor bio2 = new BioTraktor(2);
@@ -52,7 +57,11 @@ public class Test {
 		bauernhof1.insertTraktor(diesel2);
 		bauernhof1.insertTraktor(diesel3);
 		
-		System.out.println(bauernhof1.avgBioTraktor());
+		try {
+			System.out.println(bauernhof1.avgBioTraktor());
+		} catch (DivideByZeroException e) {
+			System.out.println("No BioTraktor");
+		}
 
 		
 		Bauernbund bauernbund = new Bauernbund(); //Method bauernbund handles the set of Baunerhof's
@@ -72,41 +81,104 @@ public class Test {
 		bauernbund.getFarm("Hiasl").getTraktor(2).change(streuer2);
 		bauernbund.getFarm("Hiasl").deleteTraktor(bauernbund.getFarm("Hiasl").getTraktor(3));
 		
+		System.out.println(bauernbund.getFarm("Hiasl").getTraktor(2));
+		
 		Set b = bauernbund.getBauernhofSet();
 		
 		MyIterator bauernIter = b.iterator();
+		
+		System.out.println("\nStatistische Wert berechnen");
 		
 		while(bauernIter.hasNext()){
 			Bauernhof tmp = (Bauernhof) bauernIter.next();
 			System.out.println(tmp.toString());
 			System.out.println(tmp.sumOpHours());
-			System.out.println(tmp.avgBioTraktor());
-			System.out.println(tmp.avgOpHours());
-			System.out.println(tmp.avgOpHoursFertilize());
-			System.out.println(tmp.avgOpHoursSeed());
+			
+			try {
+				System.out.println(tmp.avgBioTraktor());
+			} catch (DivideByZeroException e) {
+				System.out.println(0);
+			}
+			try {
+				System.out.println(tmp.avgOpHours());
+			} catch (DivideByZeroException e) {
+				System.out.println(0);
+			}
+			try {
+				System.out.println(tmp.avgOpHoursFertilize());
+			} catch (DivideByZeroException e) {
+				System.out.println(0);
+			}
+			try {
+				System.out.println(tmp.avgOpHoursSeed());
+			} catch (DivideByZeroException e) {
+				System.out.println(0);
+			}
 			System.out.println(tmp.sumOpHoursFertilize());
 			System.out.println(tmp.sumOpHoursSeed());
-			System.out.println(tmp.avOpHoursBioTraktor());
-			System.out.println(tmp.avOpHoursDieselTraktor());
-			System.out.println(tmp.avgDieselTraktorSeed());
-			System.out.println(tmp.avgDieselTraktorFertilizing());
-			System.out.println(tmp.avgDieselTraktor());
+			try {
+				System.out.println(tmp.avOpHoursBioTraktor());
+			} catch (DivideByZeroException e) {
+				System.out.println(0);
+			}
+			try {
+				System.out.println(tmp.avOpHoursDieselTraktor());
+			} catch (DivideByZeroException e) {
+				System.out.println(0);
+			}
+			try {
+				System.out.println(tmp.avgDieselTraktorSeed());
+			} catch (DivideByZeroException e) {
+				System.out.println(0);
+			}
+			try {
+				System.out.println(tmp.avgDieselTraktorFertilizing());
+			} catch (DivideByZeroException e2) {
+				System.out.println(0);
+			}
+			try {
+				System.out.println(tmp.avgDieselTraktor());
+			} catch (DivideByZeroException e) {
+				System.out.println(0);
+			}
 			System.out.println(tmp.sumDieselTraktor());
-			System.out.println(tmp.avgBioTraktorSeed());
-			System.out.println(tmp.avgBioTraktorFertilizing());
-			System.out.println(tmp.avgBioTraktor());
+			try {
+				System.out.println(tmp.avgBioTraktorSeed());
+			} catch (DivideByZeroException e) {
+				System.out.println(0);
+			}
+			try {
+				System.out.println(tmp.avgBioTraktorFertilizing());
+			} catch (DivideByZeroException e1) {
+				System.out.println(0);
+			}
+			try {
+				System.out.println(tmp.avgBioTraktor());
+			} catch (DivideByZeroException e) {
+				System.out.println(0);
+			}
 			System.out.println(tmp.sumBioTraktor());
 			System.out.println(tmp.minSwordsDiesel());
 			System.out.println(tmp.minSwordsBio());
 			System.out.println(tmp.maxSwordsDiesel());
 			System.out.println(tmp.maxSwordsBio());
-			System.out.println(tmp.avgCapacityDiesel());
-			System.out.println(tmp.avgCapacityBio());
-			System.out.println(tmp.avgCapacity());
+			try {
+				System.out.println(tmp.avgCapacityDiesel());
+			} catch (DivideByZeroException e) {
+				System.out.println(0);
+			}
+			try {
+				System.out.println(tmp.avgCapacityBio());
+			} catch (DivideByZeroException e) {
+				System.out.println(0);
+			}
+			try {
+				System.out.println(tmp.avgCapacity());
+			} catch (DivideByZeroException e) {
+				System.out.println(0);
+			}
 			System.out.println(tmp.sumCapacity());
+			
 		}
-		
-		System.out.println("\nStatistische Wert berechnen");
-
 	}
 }
