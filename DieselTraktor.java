@@ -1,6 +1,8 @@
 /**
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
+
+//DieselTraktor ist Undertyp of Traktor
 @ClassInformation(author="Matthias", date="09.12.2012")  
 public class DieselTraktor extends Traktor {
 

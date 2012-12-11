@@ -2,6 +2,7 @@
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
  
+//DrillMaschine ist Undertyp of Maschine
 @ClassInformation(author="Alex", date="09.12.2012") 
 public class DrillMaschine implements Maschine {
 	//Invariant: numberOfSaeschare > 0

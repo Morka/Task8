@@ -1,6 +1,8 @@
 /**
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
+
+//BioTraktor ist Undertyp of Traktor
 @ClassInformation(author="Matthias", date="09.12.2012") 
 public class BioTraktor extends Traktor {
 

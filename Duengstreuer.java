@@ -2,6 +2,7 @@
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
  
+//Duengstreuer ist Undertyp of Maschine
 @ClassInformation(author="Alex", date="09.12.2012") 
 public class Duengstreuer implements Maschine {
 	//Invariant: capacity > 0
