@@ -2,6 +2,8 @@
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
  
+@ClassInformation(author="Wolfgang", date="11.12.2012") 
+
 public class Bauernbund {
 	private Set bauernhoefe;
 	
@@ -27,6 +29,7 @@ public class Bauernbund {
 		bauernhoefe.delete(bauernhof);
 	}
 	
+	@MethodInformation(author="Alex", date="11.12.2012", description="returns set bauernhoefe")
 	protected Set getBauernhofSet(){
 		return bauernhoefe;
 	}

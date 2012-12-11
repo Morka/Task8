@@ -1,4 +1,5 @@
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
+import java.lang.annotation.*;
 
 /**
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
@@ -11,18 +12,9 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
-		//Traktor fendtVarioBitch = new BioTraktor();
-		Method[] ms = BioTraktor.class.getDeclaredMethods();
-		
-		for(Method m : ms){
-			
-			System.out.println(m.toString());
-			
-		}
-					
+
 		Bauernhof bauernhof1 = new Bauernhof("Hiasl");
-		
+
 		/*
 		 * Estimated output: 0
 		 * 
@@ -41,66 +33,66 @@ public class Test {
 		DieselTraktor diesel1 = new DieselTraktor(4);
 		DieselTraktor diesel2 = new DieselTraktor(5);
 		DieselTraktor diesel3 = new DieselTraktor(6);
-		
+
 		DrillMaschine drill1 = new DrillMaschine(3);
 		DrillMaschine drill2 = new DrillMaschine(7);
 		Duengstreuer streuer1 = new Duengstreuer(500.3);
 		Duengstreuer streuer2 = new Duengstreuer(250);
-		
+
 		bio1.change(drill1);
 		bio2.change(drill2);
 		bio3.change(streuer1);
 		diesel1.change(streuer2);
 		diesel2.change(drill2);
 		diesel3.change(streuer2);
-		
+
 		bauernhof1.insertTraktor(bio1);
 		bauernhof1.insertTraktor(bio2);
 		bauernhof1.insertTraktor(bio3);
 		bauernhof1.insertTraktor(diesel1);
 		bauernhof1.insertTraktor(diesel2);
 		bauernhof1.insertTraktor(diesel3);
-		
+
 		Bauernbund bauernbund = new Bauernbund(); //Method bauernbund handles the set of Baunerhof's
-			
+
 		Bauernhof bauernhof2 = new Bauernhof("Hoellgraf");
 		Bauernhof bauernhof3 = new Bauernhof("Zainzhof");
-		
+
 		bauernhof2.insertTraktor(bio2);
 		bauernhof3.insertTraktor(diesel3);
 		bauernhof3.insertTraktor(diesel2);
-		
+
 		diesel3.increaseUpHoursFertilizing(5123);
 		diesel2.increaseUpHoursFertilizing(234.9);
 		diesel3.increaseUpHoursFertilizing(12.34);
 
-		
+
 		bauernbund.addFarm(bauernhof1);
 		bauernbund.addFarm(bauernhof3);
 		bauernbund.addFarm(bauernhof2);
-		
+
 		/*
 		 * Estimated Output: Hoellgraf
 		 * Seriennummer - 2 | Angehaengte Maschine - DrillMaschine: 7
 		 * */
 		System.out.println(bauernbund.getFarm("Hoellgraf"));
 		System.out.println(bauernbund.getFarm("Hoellgraf").getTraktor(2));
-		
+
 		bauernbund.getFarm("Hiasl").getTraktor(2).change(streuer2);
 		bauernbund.getFarm("Hiasl").deleteTraktor(bauernbund.getFarm("Hiasl").getTraktor(3));
-		
+
 		/*
 		 * Estimated Output after change of Machine: 
 		 * Seriennummer - 2 | Angehaengte Maschine - Duengstreuer: 250.0
 		 * */
 		System.out.println(bauernbund.getFarm("Hiasl").getTraktor(2));
-		
+
 		Set b = bauernbund.getBauernhofSet();
-		
+
 		MyIterator bauernIter = b.iterator();
-		
+
 		System.out.println("\nStatistische Wert berechnen");
-		
+
 		/*Estimated output: 
 		 * in Bauernhof "Hiasl":
 		 * 	SumOpHours: 5370.24
@@ -136,11 +128,11 @@ public class Test {
 		 *  AvgCapacity: 250.0
 		 *	SumCapacity: 250.0
 		 *	rest should be 0
-*/
+		 */
 		while(bauernIter.hasNext()){
 			Bauernhof tmp = (Bauernhof) bauernIter.next();
 			System.out.println(tmp.toString());
-			
+
 			System.out.println("SumOpHours: " + tmp.sumOpHours());
 			try {
 				System.out.println("AvgBioTraktor: " + tmp.avgBioTraktor());
@@ -226,7 +218,18 @@ public class Test {
 				System.out.println("AvgCapacity: 0");
 			}
 			System.out.println("SumCapacity: "+ tmp.sumCapacity());
-			
+
+		}
+				
+		Method[] ms = BioTraktor.class.getDeclaredMethods();
+		
+		
+		for(Method m : ms){
+
+			Annotation[] an = m.getAnnotations();
+			for(Annotation a : an){
+				System.out.println(a);
+			}
 		}
 	}
 }

@@ -20,7 +20,7 @@ public class Bauernhof {
 	/*
 	 * Postcondition: name of Bauernhof is delivered
 	 */
-	@MethodInformation(author="Wolfgang", date="11.12.2012", description="gives back name of the farm")
+	@MethodInformation(author="Alex", date="11.12.2012", description="gives back name of the farm")
 	public String toString() {
 		return name;
 	}
@@ -28,7 +28,7 @@ public class Bauernhof {
 	/*
 	 * Postcondition: delivers traktor with declared number
 	 */
-	@MethodInformation(author="Wolfgang", date="11.12.2012", description="gives back tractor with declared number")
+	@MethodInformation(author="Alex", date="11.12.2012", description="gives back tractor with declared number")
 	protected Traktor getTraktor(int nr) {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		Traktor ret = null;
@@ -44,7 +44,7 @@ public class Bauernhof {
 	/*
 	 * Postcondition: delivers unique name of the Farm
 	 */
-	@MethodInformation(author="Wolfgang", date="07.12.2012", description="gives back name of farm")
+	@MethodInformation(author="Alex", date="07.12.2012", description="gives back name of farm")
 	protected String getId() {
 		return name;
 	}
@@ -54,7 +54,7 @@ public class Bauernhof {
 	 * Precondition: traktor must not exist in Set traktoren
 	 * Postcondition: traktor is inserted in the Set traktoren
 	 */
-	@MethodInformation(author="Wolfgang", date="07.12.2012", description="inserts tractor in Set")
+	@MethodInformation(author="Matthias", date="07.12.2012", description="inserts tractor in Set")
 	protected void insertTraktor(Traktor traktor) {
 		traktoren.insert(traktor);
 	}
@@ -63,7 +63,7 @@ public class Bauernhof {
 	 * Precondition: traktor-element must exist in Set traktoren
 	 * Postcondition: traktor is deleted in the Set traktoren
 	 */
-	@MethodInformation(author="Wolfgang", date="07.12.2012", description="deletes tractor from Set")
+	@MethodInformation(author="Matthias", date="07.12.2012", description="deletes tractor from Set")
 	protected boolean deleteTraktor(Traktor traktor) {
 		return traktoren.delete(traktor);
 	}
@@ -72,7 +72,7 @@ public class Bauernhof {
 	 * Precondition: traktor-element must exist in Set traktoren
 	 * Postcondition: current machine is changed in traktor
 	 */
-	@MethodInformation(author="Wolfgang", date="07.12.2012", description="changes current machine of tractor")
+	@MethodInformation(author="Matthias", date="07.12.2012", description="changes current machine of tractor")
 	protected boolean changeTraktor(Traktor traktor, Maschine maschine) {
 		return traktoren.change(traktor, maschine); 
 	}
@@ -170,7 +170,7 @@ public class Bauernhof {
 	/*
 	 * Postcondition: all operating hours of all tractors on farm with operating mode sow are summed up
 	 */
-	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the sum of all seed operating hours")
+	@MethodInformation(author="Alex", date="09.12.2012", description="Gives back a double that describes the sum of all seed operating hours")
 	protected double sumOpHoursSeed() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
@@ -425,7 +425,7 @@ public class Bauernhof {
 	/*
 	 * Postcondition: minimum number of swords to plowshare for all diesel-tractors is found out
 	 */
-	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the minimum number of swords to plowshares of all DieselTraktor")
+	@MethodInformation(author="Alex", date="09.12.2012", description="Gives back a double that describes the minimum number of swords to plowshares of all DieselTraktor")
 	protected double minSwordsDiesel() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double min = 0;
@@ -452,7 +452,7 @@ public class Bauernhof {
 	/*
 	 * Postcondition: minimum number of swords to plowshare for all bio-tractors is found out
 	 */
-	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the minimum number of swords to plowshare of all BioTraktor")
+	@MethodInformation(author="Alex", date="09.12.2012", description="Gives back a double that describes the minimum number of swords to plowshare of all BioTraktor")
 	protected double minSwordsBio() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double min = 0;
@@ -479,7 +479,7 @@ public class Bauernhof {
 	/*
 	 * Postcondition: maximum number of swords to plowshare for all diesel-tractors is found out
 	 */
-	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the maximum number of swords to plowshares of all DieselTraktor")
+	@MethodInformation(author="Alex", date="09.12.2012", description="Gives back a double that describes the maximum number of swords to plowshares of all DieselTraktor")
 	protected double maxSwordsDiesel() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double max = 0;
@@ -506,7 +506,7 @@ public class Bauernhof {
 	/*
 	 * Postcondition: maximum number of swords to plowshare for all bio-tractors is found out
 	 */
-	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the maximum number of swords to plowshares of all BioTraktor")
+	@MethodInformation(author="Alex", date="09.12.2012", description="Gives back a double that describes the maximum number of swords to plowshares of all BioTraktor")
 	protected double maxSwordsBio() {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double max = 0;
@@ -533,7 +533,7 @@ public class Bauernhof {
 	/*
 	 * Postcondition: average fertilizer carrying capacity of all diesel-tractors is calculated
 	 */
-	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average carrying capacity of all DieselTraktor")
+	@MethodInformation(author="Matthias", date="09.12.2012", description="Gives back a double that describes the average carrying capacity of all DieselTraktor")
 	protected double avgCapacityDiesel() throws DivideByZeroException{
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
@@ -559,7 +559,7 @@ public class Bauernhof {
 	/*
 	 * Postcondition: average fertilizer carrying capacity of all bio-tractors is calculated
 	 */
-	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average carrying capacity of all BioTraktor")
+	@MethodInformation(author="Matthias", date="09.12.2012", description="Gives back a double that describes the average carrying capacity of all BioTraktor")
 	protected double avgCapacityBio() throws DivideByZeroException{
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
@@ -585,7 +585,7 @@ public class Bauernhof {
 	/*
 	 * Postcondition: average fertilizer carrying capacity of all tractors is calculated
 	 */
-	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average carrying capacity of all Traktor")
+	@MethodInformation(author="Matthias", date="09.12.2012", description="Gives back a double that describes the average carrying capacity of all Traktor")
 	protected double avgCapacity() throws DivideByZeroException{
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
@@ -609,7 +609,7 @@ public class Bauernhof {
 	/*
 	 * Postcondition: fertilizer carrying capacity of all tractors is summed up
 	 */
-	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the sum of carrying capacity of all Traktor")
+	@MethodInformation(author="Matthias", date="09.12.2012", description="Gives back a double that describes the sum of carrying capacity of all Traktor")
 	protected double sumCapacity(){
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;

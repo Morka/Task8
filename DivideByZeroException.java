@@ -3,7 +3,7 @@
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
  
-
+@ClassInformation(author="Wolfgang", date="11.12.2012")  
 public class DivideByZeroException extends Exception{
 	/**
 	 * 
@@ -15,7 +15,7 @@ public class DivideByZeroException extends Exception{
 	}
 	
 	DivideByZeroException() {
-		super("Division by Zero");
+		super();
 	}
 	
 }

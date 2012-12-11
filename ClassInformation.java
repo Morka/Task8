@@ -9,5 +9,4 @@ public @interface ClassInformation {
 	
 	String author() default "GOD";
 	String date() default "01.01.1970";
-
 }
