@@ -12,4 +12,10 @@ public class BioTraktor extends Traktor {
 		return this.usedGas;
 		
 	}
+	
+	public void increaseUsedFuel(double amount) {
+		
+		this.usedGas = this.usedGas + amount;
+		
+	}
 }

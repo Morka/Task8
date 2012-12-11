@@ -12,4 +12,10 @@ public class DieselTraktor extends Traktor {
 		return this.usedGasoline;
 		
 	}
+	
+	public void increaseUsedFuel(double amount) {
+		
+		this.usedGasoline = (int) (this.usedGasoline + amount);
+		
+	}
 }
