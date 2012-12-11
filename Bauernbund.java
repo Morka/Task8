@@ -25,6 +25,7 @@ public class Bauernbund {
 	
 	/*
 	 * Postcondition: delivers farm with declared number
+	 * null, if farm with declared number is not found
 	 */
 	@MethodInformation(author="Wolfgang", date="11.12.2012", description="gives back farm with declared name")
 	protected Bauernhof getFarm(String name) {
