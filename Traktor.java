@@ -4,8 +4,15 @@
 @ClassInformation(author="Matthias", date="09.12.2012") 
 public class Traktor {
 	
+	private final int snr;
 	private Maschine machine;
 	private double upHoursFertilizing, upHoursSeeding;
+	
+	public Traktor(int serialnumber) {
+		
+		this.snr = serialnumber;
+		
+	}
 	
 	//wechselt Maschine aus
 	@MethodInformation(author="Matthias", date="09.12.2012", description="Changes the purpose of the tractor.")

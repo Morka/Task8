@@ -4,6 +4,10 @@
 @ClassInformation(author="Matthias", date="09.12.2012")  
 public class DieselTraktor extends Traktor {
 	
+	public DieselTraktor(int serialnumber) {
+		super(serialnumber);
+	}
+
 	private int usedGasoline;//TODO method to increase this - either +1 or +amountOfUsedGas
 	
 	@MethodInformation(author="Matthias", date="09.12.2012", description="Return amount of used fuel(gasoline).")
@@ -13,6 +17,7 @@ public class DieselTraktor extends Traktor {
 		
 	}
 	
+	@MethodInformation(author="Matthias", date="11.12.2012", description="Increases the used fuel by amount.")
 	public void increaseUsedFuel(double amount) {
 		
 		this.usedGasoline = (int) (this.usedGasoline + amount);
