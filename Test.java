@@ -68,10 +68,45 @@ public class Test {
 		
 		System.out.println(bauernbund.getFarm("Hoellgraf"));
 		System.out.println(bauernbund.getFarm("Hoellgraf").getTraktor(2));
-
+		
+		bauernbund.getFarm("Hiasl").getTraktor(2).change(streuer2);
+		bauernbund.getFarm("Hiasl").deleteTraktor(bauernbund.getFarm("Hiasl").getTraktor(3));
+		
+		Set b = bauernbund.getBauernhofSet();
+		
+		MyIterator bauernIter = b.iterator();
+		
+		while(bauernIter.hasNext()){
+			Bauernhof tmp = (Bauernhof) bauernIter.next();
+			System.out.println(tmp.toString());
+			System.out.println(tmp.sumOpHours());
+			System.out.println(tmp.avgBioTraktor());
+			System.out.println(tmp.avgOpHours());
+			System.out.println(tmp.avgOpHoursFertilize());
+			System.out.println(tmp.avgOpHoursSeed());
+			System.out.println(tmp.sumOpHoursFertilize());
+			System.out.println(tmp.sumOpHoursSeed());
+			System.out.println(tmp.avOpHoursBioTraktor());
+			System.out.println(tmp.avOpHoursDieselTraktor());
+			System.out.println(tmp.avgDieselTraktorSeed());
+			System.out.println(tmp.avgDieselTraktorFertilizing());
+			System.out.println(tmp.avgDieselTraktor());
+			System.out.println(tmp.sumDieselTraktor());
+			System.out.println(tmp.avgBioTraktorSeed());
+			System.out.println(tmp.avgBioTraktorFertilizing());
+			System.out.println(tmp.avgBioTraktor());
+			System.out.println(tmp.sumBioTraktor());
+			System.out.println(tmp.minSwordsDiesel());
+			System.out.println(tmp.minSwordsBio());
+			System.out.println(tmp.maxSwordsDiesel());
+			System.out.println(tmp.maxSwordsBio());
+			System.out.println(tmp.avgCapacityDiesel());
+			System.out.println(tmp.avgCapacityBio());
+			System.out.println(tmp.avgCapacity());
+			System.out.println(tmp.sumCapacity());
+		}
+		
 		System.out.println("\nStatistische Wert berechnen");
-		
-		
-		
+
 	}
 }

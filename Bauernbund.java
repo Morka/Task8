@@ -3,7 +3,7 @@
  */
  
 public class Bauernbund {
-	Set bauernhoefe;
+	private Set bauernhoefe;
 	
 	public Bauernbund(){
 		bauernhoefe = new Set();
@@ -25,6 +25,10 @@ public class Bauernbund {
 	@MethodInformation(author="Wolfgang", date="11.12.2012", description="deletes bauernhof from set bauernhoefe")
 	protected void deleteFarm(Bauernhof bauernhof) {
 		bauernhoefe.delete(bauernhof);
+	}
+	
+	protected Set getBauernhofSet(){
+		return bauernhoefe;
 	}
 	
 	/*
