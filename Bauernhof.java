@@ -88,7 +88,7 @@ public class Bauernhof {
 	 * Postcondition: average operating hours of all tractors on farm are calculated
 	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all operating hours")
-	protected double avgOpHours() {
+	protected double avgOpHours() throws DivideByZeroException {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -98,6 +98,9 @@ public class Bauernhof {
 			count ++;
 		}
 		
+		if(count == 0)
+			throw new DivideByZeroException();
+
 		return sum/count;
 	}
 	
@@ -105,7 +108,7 @@ public class Bauernhof {
 	 * Postcondition: average operating hours of all tractors on farm with operating mode fertilize are calculated
 	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all fertilize operating hours")
-	protected double avgOpHoursFertilize() {
+	protected double avgOpHoursFertilize() throws DivideByZeroException {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -115,6 +118,9 @@ public class Bauernhof {
 			count ++;
 		}
 		
+		if(count == 0)
+			throw new DivideByZeroException();
+		
 		return sum/count;
 	}
 	
@@ -122,7 +128,7 @@ public class Bauernhof {
 	 * Postcondition: average operating hours of all tractors on farm with operating mode sow are calculated
 	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all sowing operating hours")
-	protected double avgOpHoursSeed() {
+	protected double avgOpHoursSeed() throws DivideByZeroException {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -131,6 +137,9 @@ public class Bauernhof {
 			sum += ((Traktor) it.next()).getOpHoursSaeen();
 			count ++;
 		}
+		
+		if(count == 0)
+			throw new DivideByZeroException();
 		
 		return sum/count;
 	}
@@ -171,7 +180,7 @@ public class Bauernhof {
 	 * Postcondition: average operating hours of all bio-tractors on farm are calculated
 	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all operating hours of all BioTraktor")
-	protected double avOpHoursBioTraktor() {
+	protected double avOpHoursBioTraktor() throws DivideByZeroException {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -185,6 +194,9 @@ public class Bauernhof {
 			}
 		}
 		
+		if(count == 0)
+			throw new DivideByZeroException();
+		
 		return sum/count;
 	}
 	
@@ -192,7 +204,7 @@ public class Bauernhof {
 	 * Postcondition: average operating hours of all diesel-tractors on farm are calculated
 	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all operating hours of all DieselTraktor")
-	protected double avOpHoursDieselTraktor() {
+	protected double avOpHoursDieselTraktor() throws DivideByZeroException {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -206,6 +218,9 @@ public class Bauernhof {
 			}
 		}
 		
+		if(count == 0)
+			throw new DivideByZeroException();
+		
 		return sum/count;
 	}
 	
@@ -213,7 +228,7 @@ public class Bauernhof {
 	 * Postcondition: average diesel consumption of all diesel-tractors on farm with operating mode sow is calculated
 	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all used Diesel of all sowing DieselTraktor")
-	protected double avgDieselTraktorSeed() {
+	protected double avgDieselTraktorSeed() throws DivideByZeroException {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -228,6 +243,9 @@ public class Bauernhof {
 				}
 			}
 		}
+		
+		if(count == 0)
+			throw new DivideByZeroException();
 		
 		return sum/count;
 	}
@@ -259,7 +277,7 @@ public class Bauernhof {
 	 * Postcondition: average diesel consumption of all diesel-tractors on farm is calculated
 	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all used Diesel of all DieselTraktor")
-	protected double avgDieselTraktor() {
+	protected double avgDieselTraktor() throws DivideByZeroException {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -272,6 +290,9 @@ public class Bauernhof {
 				count++;
 			}
 		}
+		
+		if(count == 0)
+			throw new DivideByZeroException();
 		
 		return sum/count;
 	}
@@ -299,7 +320,7 @@ public class Bauernhof {
 	 * Postcondition: average gas consumption of all bio-tractors on farm with operating mode sow is calculated
 	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all used Gas of all sowing BioTraktor")
-	protected double avgBioTraktorSeed() {
+	protected double avgBioTraktorSeed() throws DivideByZeroException {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -315,6 +336,9 @@ public class Bauernhof {
 			}
 		}
 		
+		if(count == 0)
+			throw new DivideByZeroException();
+		
 		return sum/count;
 	}
 		
@@ -322,7 +346,7 @@ public class Bauernhof {
 	 * Postcondition: average gas consumption of all bio-tractors on farm with operating mode fertilize is calculated
 	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all used Gas of all fertilizing BioTraktor")
-	protected double avgBioTraktorFertilizing() {
+	protected double avgBioTraktorFertilizing() throws DivideByZeroException {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -338,6 +362,9 @@ public class Bauernhof {
 			}
 		}
 		
+		if(count == 0)
+			throw new DivideByZeroException();
+		
 		return sum/count;
 	}
 	
@@ -345,7 +372,7 @@ public class Bauernhof {
 	 * Postcondition: average gas consumption of all bio-tractors on farm is calculated
 	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average of all used Gas of all BioTraktor")
-	protected double avgBioTraktor() {
+	protected double avgBioTraktor() throws DivideByZeroException {
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -358,6 +385,9 @@ public class Bauernhof {
 				count++;
 			}
 		}
+		
+		if(count == 0)
+			throw new DivideByZeroException();
 		
 		return sum/count;
 	}
@@ -493,7 +523,7 @@ public class Bauernhof {
 	 * Postcondition: average fertilizer carrying capacity of all diesel-tractors is calculated
 	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average carrying capacity of all DieselTraktor")
-	protected double avgCapacityDiesel(){
+	protected double avgCapacityDiesel() throws DivideByZeroException{
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -508,6 +538,10 @@ public class Bauernhof {
 				}
 			}	
 		}
+		
+		if(count == 0)
+			throw new DivideByZeroException();
+		
 		return sum/count; 
 	}
 	
@@ -515,7 +549,7 @@ public class Bauernhof {
 	 * Postcondition: average fertilizer carrying capacity of all bio-tractors is calculated
 	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average carrying capacity of all BioTraktor")
-	protected double avgCapacityBio(){
+	protected double avgCapacityBio() throws DivideByZeroException{
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -530,6 +564,10 @@ public class Bauernhof {
 				}
 			}	
 		}
+		
+		if(count == 0)
+			throw new DivideByZeroException();
+		
 		return sum/count; 
 	}
 	
@@ -537,7 +575,7 @@ public class Bauernhof {
 	 * Postcondition: average fertilizer carrying capacity of all tractors is calculated
 	 */
 	@MethodInformation(author="Wolfgang", date="09.12.2012", description="Gives back a double that describes the average carrying capacity of all Traktor")
-	protected double avgCapacity(){
+	protected double avgCapacity() throws DivideByZeroException{
 		MyIterator it = (MyIterator) traktoren.iterator();
 		double sum = 0;
 		int count = 0;
@@ -550,6 +588,10 @@ public class Bauernhof {
 				count++;
 			}	
 		}
+		
+		if(count == 0)
+			throw new DivideByZeroException();
+		
 		return sum/count; 
 	}
 	
