@@ -222,35 +222,50 @@ public class Test {
 		}
 		Set classes = new Set();
 
-		classes.insert(bauernbund.getClass());
-		classes.insert(bio1.getClass());
+		classes.insert(Bauernbund.class);
+		classes.insert(Bauernhof.class);
+		classes.insert(BioTraktor.class);
+		classes.insert(DieselTraktor.class);
+		classes.insert(DrillMaschine.class);
+		classes.insert(Duengstreuer.class);
+		classes.insert(Maschine.class);
+		classes.insert(Set.class);
+		classes.insert(Traktor.class);
+
 
 		MyIterator classIter = classes.iterator();
 
 		while(classIter.hasNext()){
 			Class nextClass = (Class)classIter.next();
+			try{
 
-			System.out.println("\nClass");
-			String className = nextClass.getName();
+				System.out.println("\nClass");
+				String className = nextClass.getName();
 
-			ClassInformation classA = Bauernbund.class.getAnnotation(ClassInformation.class);
+				ClassInformation classA = Bauernbund.class.getAnnotation(ClassInformation.class);
 
-			if(classA instanceof ClassInformation){
-				System.out.println(className + " mostly written by " + ((ClassInformation)classA).author());
+				if(classA instanceof ClassInformation){
+					System.out.println(className + " mostly written by " + ((ClassInformation)classA).author());
+				}
+			}catch(NullPointerException ex){
+				System.out.println("No Annotation for this class");
 			}
 			Method[] ms = nextClass.getDeclaredMethods();
 
 			System.out.println("\nMethods");
 
+			try{
+				for(Method m : ms){
+					String print = m.getName();
 
-			for(Method m : ms){
-				String print = m.getName();
+					MethodInformation method = m.getAnnotation(MethodInformation.class);
 
-				MethodInformation method = m.getAnnotation(MethodInformation.class);
+					System.out.println(print + " written by " + method.author());
 
-				System.out.println(print + " written by " + method.author());
-				
-				
+
+				}
+			}catch(NullPointerException ex){
+				System.out.println("No Annotation for this Method");
 			}
 
 		}		
