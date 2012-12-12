@@ -220,16 +220,39 @@ public class Test {
 			System.out.println("SumCapacity: "+ tmp.sumCapacity());
 
 		}
-				
-		Method[] ms = BioTraktor.class.getDeclaredMethods();
-		
-		
-		for(Method m : ms){
+		Set classes = new Set();
 
-			Annotation[] an = m.getAnnotations();
-			for(Annotation a : an){
-				System.out.println(a);
+		classes.insert(bauernbund.getClass());
+		classes.insert(bio1.getClass());
+
+		MyIterator classIter = classes.iterator();
+
+		while(classIter.hasNext()){
+			Class nextClass = (Class)classIter.next();
+
+			System.out.println("\nClass");
+			String className = nextClass.getName();
+
+			ClassInformation classA = Bauernbund.class.getAnnotation(ClassInformation.class);
+
+			if(classA instanceof ClassInformation){
+				System.out.println(className + " mostly written by " + ((ClassInformation)classA).author());
 			}
-		}
+			Method[] ms = nextClass.getDeclaredMethods();
+
+			System.out.println("\nMethods");
+
+
+			for(Method m : ms){
+				String print = m.getName();
+
+				MethodInformation method = m.getAnnotation(MethodInformation.class);
+
+				System.out.println(print + " written by " + method.author());
+				
+				
+			}
+
+		}		
 	}
 }
