@@ -27,18 +27,21 @@ public class Test {
 			System.out.println(0);
 		} 
 
+		//a few Traktor's and machines are made
 		BioTraktor bio1 = new BioTraktor(1);
 		BioTraktor bio2 = new BioTraktor(2);
 		BioTraktor bio3 = new BioTraktor(3);
 		DieselTraktor diesel1 = new DieselTraktor(4);
 		DieselTraktor diesel2 = new DieselTraktor(5);
 		DieselTraktor diesel3 = new DieselTraktor(6);
+		DieselTraktor diesel4 = new DieselTraktor(7);
 
 		DrillMaschine drill1 = new DrillMaschine(3);
 		DrillMaschine drill2 = new DrillMaschine(7);
 		Duengstreuer streuer1 = new Duengstreuer(500.3);
 		Duengstreuer streuer2 = new Duengstreuer(250);
 
+		//the Method change gives a Traktor the specified machine
 		bio1.change(drill1);
 		bio2.change(drill2);
 		bio3.change(streuer1);
@@ -62,11 +65,15 @@ public class Test {
 		bauernhof3.insertTraktor(diesel3);
 		bauernhof3.insertTraktor(diesel2);
 
+		//increases hours of fertilizing by the given double parameter
+		//it does not forbid to set negativ values, although it doesn't
+		//make much sense
 		diesel3.increaseUpHoursFertilizing(5123);
 		diesel2.increaseUpHoursFertilizing(234.9);
 		diesel3.increaseUpHoursFertilizing(12.34);
+		diesel4.increaseUpHoursFertilizing(-5);
 
-
+		//bauernhof's are stored in the set inside bauernbund
 		bauernbund.addFarm(bauernhof1);
 		bauernbund.addFarm(bauernhof3);
 		bauernbund.addFarm(bauernhof2);
@@ -78,6 +85,7 @@ public class Test {
 		System.out.println(bauernbund.getFarm("Hoellgraf"));
 		System.out.println(bauernbund.getFarm("Hoellgraf").getTraktor(2));
 
+		//Baeuernhof and Traktor are only referenced by there name or number
 		bauernbund.getFarm("Hiasl").getTraktor(2).change(streuer2);
 		bauernbund.getFarm("Hiasl").deleteTraktor(bauernbund.getFarm("Hiasl").getTraktor(3));
 
@@ -87,9 +95,9 @@ public class Test {
 		 * */
 		System.out.println(bauernbund.getFarm("Hiasl").getTraktor(2));
 
-		Set b = bauernbund.getBauernhofSet();
+		Set bbSet = bauernbund.getBauernhofSet();
 
-		MyIterator bauernIter = b.iterator();
+		MyIterator bauernIter = bbSet.iterator();
 
 		System.out.println("\nStatistische Wert berechnen");
 
@@ -234,7 +242,7 @@ public class Test {
 
 
 		MyIterator classIter = classes.iterator();
-
+		
 		while(classIter.hasNext()){
 			Class nextClass = (Class)classIter.next();
 			try{
@@ -245,7 +253,7 @@ public class Test {
 				ClassInformation classA = Bauernbund.class.getAnnotation(ClassInformation.class);
 
 				if(classA instanceof ClassInformation){
-					System.out.println(className + " mostly written by " + ((ClassInformation)classA).author());
+					System.out.println(className + " mostly written by " + classA.author());
 				}
 			}catch(NullPointerException ex){
 				System.out.println("No Annotation for this class");

@@ -12,7 +12,9 @@ public class Duengstreuer implements Maschine {
 	public Duengstreuer(double capacity){
 		this.capacity = capacity;
 	}
-	
+	/**
+	 * @return a double value which contains the capacity of the Duengstreuer
+	 * */
 	@MethodInformation(author="Alex", date="09.12.2012", description="Gives back capacity of this Duengstreuer")
 	public double getDetailOfMaschine(){
 		return capacity;

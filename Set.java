@@ -161,7 +161,7 @@ public class Set {
 		
 		while(p != null) {
 			if(p.getElement() == traktor) {
-				((Traktor) ((Node) p).getElement()).change(maschine);
+				((Traktor) p.getElement()).change(maschine);
 				return true;
 			}
 			

@@ -9,10 +9,14 @@ public class DrillMaschine implements Maschine {
 	private int numberOfSaeschare; 
 	
 	//Precondition: numberOfSaeschare > 0 
+	//Postcondition: this.numberOfSaeschare is set to numberOfSaeschare
 	public DrillMaschine(int numberOfSaeschare){
 		this.numberOfSaeschare = numberOfSaeschare;
 	}
 	
+	/**
+	 * @return a double value which contains the numbers of Saeschare's used
+	 * */
 	@MethodInformation(author="Alex", date="09.12.2012", description="Gives back numberOfSaeschare")
 	public double getDetailOfMaschine(){
 		return numberOfSaeschare;
